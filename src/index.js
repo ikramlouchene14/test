@@ -54,4 +54,35 @@ client.on('interactionCreate', (interaction) => {
 //});
 
 
+//embeds
+client.on('interactionCreate', (interaction) => {
+if (interaction.commandName === 'embed') {
+  const embed = new EmbedBuilder()
+    .setTitle('This is GDSC')
+    .setDescription('a gdsc embed ')
+    .setColor('blue')
+    .addFields(
+      {
+        name: 'SM team',
+        value: 'this is social media team ',
+        inline: true,
+      },
+      {
+        name: 'Design team',
+        value: 'this is design team ',
+        inline: true,
+      },
+      {
+        name: 'Dev team ',
+        value: 'this is dev team',
+        inline: true,
+      },
+    );
+
+  interaction.reply({ embeds: [embed] });
+}
+});
+
+
+
 client.login(process.env.TOKEN);

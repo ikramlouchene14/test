@@ -1,14 +1,7 @@
 require('dotenv').config();
 const{REST, Routes, ApplicationCommandOptionType} =require("discord.js");
-const commandes = [
-    {
-        name:'hello',
-        description:'replies with oh Hi!'
-    }
-]
-
-
 const commands = [
+   
     {
       name: 'add',
       description: 'Adds two numbers.',
@@ -33,6 +26,8 @@ const commands = [
           ],
           required: true,
         },
+
+
         {
           name: 'second-number',
           description: 'The second number.',
@@ -41,10 +36,20 @@ const commands = [
         },
       ],
     },
-  ];
-  
+    {
+      name:'hi',
+      description:'replies with HIII',
+    },
 
-  
+     //this one is for the embed
+    {
+      name: 'embedd',
+      description: 'Sends an embed!',
+    },
+]
+
+
+
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
@@ -57,9 +62,9 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
             process.env.CLIENT_ID,
             process.env.GUILD_ID
         ),
-        {body: commandes}
+        {body: commands}
     );
-    console.log('slash commandes were registred successfully! ');
+    console.log('slash commands were registred successfully! ');
         } catch (error) {
             console.log(`there was an error: ${error}`);
         };
